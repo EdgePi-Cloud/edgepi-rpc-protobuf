@@ -20,11 +20,8 @@ jobs:
       run: |
         wget https://github.com/protocolbuffers/protobuf/releases/download/v23.4/protoc-23.4-linux-aarch_64.zip
         unzip protoc-23.4-linux-aarch_64.zip
-    - name: Add protoc to PATH
-      run: |
-        echo 'export PATH=$PATH:$PWD/protoc/bin' >> $GITHUB_ENV
     - name: Compile protos
-      run: protoc -I=. --python_out=./src-python/edgepi-rpc-protos ./*.proto
+      run: ./bin/protoc -I=. --python_out=./src-python/edgepi-rpc-protos ./*.proto
     - name: Install dependancies
       run: |
         python -m pip install --upgrade pip
