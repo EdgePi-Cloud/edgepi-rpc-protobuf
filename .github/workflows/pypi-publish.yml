@@ -19,7 +19,7 @@ jobs:
     - name: Install protobuf compiler
       run: |
         wget https://github.com/protocolbuffers/protobuf/releases/download/v23.4/protoc-23.4-linux-x86_64.zip
-        unzip protoc-23.4-linux-aarch_64.zip
+        unzip protoc-23.4-linux-x86_64.zip
     - name: Compile protos
       run: ./bin/protoc -I=. --python_out=./src-python/edgepi-rpc-protos ./*.proto
     - name: Install dependancies
