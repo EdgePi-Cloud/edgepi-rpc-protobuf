@@ -1,0 +1,29 @@
+/* Protobuf file for the Din SDK module */
+
+syntax = "proto3";
+
+package EdgePiRPC_DIN;
+option py_generic_services = true;
+
+service DinService {
+    rpc digital_input_state(DinPin) returns(SuccessMsg);
+}
+
+message DinPin {
+    optional DinPins din_pin = 1;
+}
+
+message SuccessMsg {
+    optional string content = 1;
+}
+
+enum DinPins {
+    DIN1 = 0;
+    DIN2 = 1;
+    DIN3 = 2;
+    DIN4 = 3;
+    DIN5 = 4;
+    DIN6 = 5;
+    DIN7 = 6;
+    DIN8 = 7;
+}
