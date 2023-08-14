@@ -6,15 +6,15 @@ package EdgePiRPC_DIN;
 option py_generic_services = true;
 
 service DinService {
-    rpc digital_input_state(DinPin) returns(SuccessMsg);
+    rpc digital_input_state(DinPin) returns(State);
 }
 
 message DinPin {
     optional DinPins din_pin = 1;
 }
 
-message SuccessMsg {
-    optional string content = 1;
+message State {
+    optional bool state_bool = 1;
 }
 
 enum DinPins {
