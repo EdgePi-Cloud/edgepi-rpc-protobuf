@@ -1,0 +1,39 @@
+/* Protouf file for the ADC SDK module */
+
+syntax = "proto3";
+
+package EdgePiRPC_ADC;
+option py_generic_services = true;
+
+service AdcService{
+    rpc set_config(Config) returns(SuccessMsg);
+    rpc single_sample(EmptyMsg) returns(VoltageRead);
+}
+
+message EmptyMsg {
+    // Empty Message
+}
+
+message SuccessMsg {
+    string content = 1;
+}
+
+message VoltageRead {
+    float voltage_read = 1;
+}
+
+message Config {
+    repeated ConfArg conf_arg = 1;
+
+    message ConfArg{
+        oneof enum{
+            AnalogIn adc_1_analog_in = 2;
+            ADC1DataRate adc_1_data_rate = 3;
+            AnalogIn adc_2_analog_in = 4;
+            ADC2DataRate adc_2_data_rate = 5;
+            FilterMode filter_mode = 6;
+            ConvMode conversion_mode = 7;
+            bool override_updates_validation = 8;
+        }
+    }
+}
