@@ -37,3 +37,57 @@ message Config {
         }
     }
 }
+
+enum AnalogIn {
+    AIN1 = 0;
+    AIN2 = 1;
+    AIN3 = 2;
+    AIN4 = 3;
+    AIN5 = 4;
+    AIN6 = 5;
+    AIN7 = 6;
+    AIN8 = 7;
+    AINCOM = 8;
+    FLOAT = 9;
+}
+
+enum ADC1DataRate {
+    
+    SPS_2P5 = 0;
+    SPS_5 = 1;
+    SPS_10 = 2;
+    SPS_16P6 = 3;
+    SPS_20 = 4;
+    SPS_50 = 5;
+    SPS_60 = 6;
+    SPS_100 = 7;
+    SPS_400 = 8;
+    SPS_1200 = 9;
+    SPS_2400 = 10;
+    SPS_4800 = 11;
+    SPS_7200 = 12;
+    SPS_14400 = 13;
+    SPS_19200 = 14;
+    SPS_38400 = 15;
+}
+
+enum ADC2DataRate {
+    SPS_10 = 0;
+    SPS_100 = 1;
+    SPS_400 = 3;
+    SPS_800 = 4;
+}
+
+enum FilterMode {
+    SINC1 = 0;
+    SINC2 = 1;
+    SINC3 = 2;
+    SINC4 = 3;
+    FIR = 4;
+}
+
+enum ConvMode {
+    CONTINUOUS = 0;
+    PULSE = 1;
+
+}
