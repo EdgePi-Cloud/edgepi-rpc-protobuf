@@ -8,7 +8,7 @@ option py_generic_services = true;
 service RelayService {
     rpc open_relay(EmptyMsg) returns(SuccessMsg);
     rpc close_relay(EmptyMsg) returns(SuccessMsg);
-    rpc get_state_relay(EmptyMsg) returns(SuccessMsg);
+    rpc get_state_relay(EmptyMsg) returns(State);
 }
 
 message EmptyMsg {
@@ -17,4 +17,8 @@ message EmptyMsg {
 
 message SuccessMsg {
     optional string content = 1;
+}
+
+message State {
+    optional bool state_bool = 1;
 }
