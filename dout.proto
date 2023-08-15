@@ -1,4 +1,4 @@
-/* Protobuf file for the LED SDK module */
+/* Protobuf file for the Dout SDK module */
 
 syntax = "proto3";
 

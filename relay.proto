@@ -1,0 +1,20 @@
+/* Protobuf file for the Relay SDK module */
+
+syntax = "proto3";
+
+package EdgePiRPC_Relay;
+option py_generic_services = true;
+
+service RelayService {
+    rpc open_relay(EmptyMsg) returns(SuccessMsg);
+    rpc close_relay(EmptyMsg) returns(SuccessMsg);
+    rpc get_state_relay(EmptyMsg) returns(SuccessMsg);
+}
+
+message EmptyMsg {
+    // Empty Message
+}
+
+message SuccessMsg {
+    optional string content = 1;
+}
