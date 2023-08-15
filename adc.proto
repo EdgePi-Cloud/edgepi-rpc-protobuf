@@ -55,13 +55,13 @@ enum ADC1DataRate {
     
     SPS_2P5 = 0;
     SPS_5 = 1;
-    SPS_10 = 2;
+    SPS_10_ = 2;
     SPS_16P6 = 3;
     SPS_20 = 4;
     SPS_50 = 5;
     SPS_60 = 6;
-    SPS_100 = 7;
-    SPS_400 = 8;
+    SPS_100_ = 7;
+    SPS_400_ = 8;
     SPS_1200 = 9;
     SPS_2400 = 10;
     SPS_4800 = 11;
