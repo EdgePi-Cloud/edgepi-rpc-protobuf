@@ -1,0 +1,57 @@
+/* Protouf file for the DAC SDK module */
+
+syntax = "proto3";
+
+package EdgePiRPC_DAC;
+option py_generic_services = true;
+
+service DacService{
+    rpc set_dac_gain(Gain) returns(GainState);
+    rpc write_voltage(DACChannel) returns(SuccessMsg);
+    rpc get_state(GetState) returns (State);
+    rpc reset(EmptyMsg) returns (SuccessMsg);
+}
+
+
+message EmptyMsg {}
+
+message SuccessMsg{
+    optional string content = 1;
+}
+
+message Gain {
+    optional bool set_gain = 1;
+    optional bool auto_code_change = 2;
+}
+
+message GainState {
+    optional bool gain_state = 1;
+}
+
+message DACChannel{
+    optional DACChannels dac_channel = 1;
+}
+
+message GetState {
+    optional DACChannels dac_channel = 1;
+    optional bool code = 2;
+    optional bool voltage = 3;
+    optional bool gain = 4;
+}
+
+message State {
+    optional int32 code_val = 1;
+    optional int32 voltage_val = 2;
+    optional bool gain_state = 3;
+}
+
+enum DACChannels{
+    AOUT1 = 0;
+    AOUT2 = 1;
+    AOUT3 = 2;
+    AOUT4 = 3;
+    AOUT5 = 4;
+    AOUT6 = 5;
+    AOUT7 = 6;
+    AOUT8 = 7;
+}
