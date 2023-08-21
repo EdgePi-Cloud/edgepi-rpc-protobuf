@@ -7,7 +7,7 @@ option py_generic_services = true;
 
 service DacService{
     rpc set_dac_gain(Gain) returns(GainState);
-    rpc write_voltage(DACChannel) returns(SuccessMsg);
+    rpc write_voltage(WriteVoltage) returns(SuccessMsg);
     rpc get_state(GetState) returns (State);
     rpc reset(EmptyMsg) returns (SuccessMsg);
 }
@@ -28,8 +28,9 @@ message GainState {
     optional bool gain_state = 1;
 }
 
-message DACChannel{
+message WriteVoltage{
     optional DACChannels dac_channel = 1;
+    optional float voltage = 2;
 }
 
 message GetState {
