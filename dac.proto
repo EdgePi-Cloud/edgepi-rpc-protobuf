@@ -42,7 +42,7 @@ message GetState {
 
 message State {
     optional int32 code_val = 1;
-    optional int32 voltage_val = 2;
+    optional float voltage_val = 2;
     optional bool gain_state = 3;
 }
 
