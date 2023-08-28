@@ -18,11 +18,11 @@ message EmptyMsg {
 }
 
 message SuccessMsg {
-    string content = 1;
+    optional string content = 1;
 }
 
 message VoltageRead {
-    float voltage_read = 1;
+    optional float voltage_read = 1;
 }
 
 message Config {
@@ -42,17 +42,17 @@ message Config {
 }
 
 message DiffConfig {
-    ADCNum adc_num = 1;
-    DiffMode diff = 2;
+    optional ADCNum adc_num = 1;
+    optional DiffMode diff = 2;
 }
 
 message RtdConfig {
-    bool set_rtd = 1;
-    ADCNum adc_num = 2;
+    optional bool set_rtd = 1;
+    optional ADCNum adc_num = 2;
 }
 
 message TempReading {
-    float temp = 1;
+    optional float temp = 1;
 }
 
 enum AnalogIn {
