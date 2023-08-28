@@ -8,6 +8,9 @@ option py_generic_services = true;
 service AdcService{
     rpc set_config(Config) returns(SuccessMsg);
     rpc single_sample(EmptyMsg) returns(VoltageRead);
+    rpc select_differential(DiffConfig) returns(SuccessMsg);
+    rpc set_rtd(RtdConfig) returns(SuccessMsg);
+    rpc single_sample_rtd(EmptyMsg) returns(TempReading);
 }
 
 message EmptyMsg {
@@ -36,6 +39,20 @@ message Config {
             bool override_updates_validation = 8;
         }
     }
+}
+
+message DiffConfig {
+    ADCNum adc_num = 1;
+    DiffMode diff = 2;
+}
+
+message RtdConfig {
+    bool set_rtd = 1;
+    ADCNum adc_num = 2;
+}
+
+message TempReading {
+    float temp = 1;
 }
 
 enum AnalogIn {
@@ -90,4 +107,17 @@ enum ConvMode {
     CONTINUOUS = 0;
     PULSE = 1;
 
+}
+
+enum ADCNum {
+    ADC_1 = 0;
+    ADC_2 = 1;
+}
+
+enum DiffMode {
+    DIFF_1 = 0;
+    DIFF_2 = 1;
+    DIFF_3 = 2;
+    DIFF_4 = 3;
+    DIFF_OFF = 4;
 }
