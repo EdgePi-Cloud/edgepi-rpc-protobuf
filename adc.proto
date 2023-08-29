@@ -11,6 +11,8 @@ service AdcService{
     rpc select_differential(DiffConfig) returns(SuccessMsg);
     rpc set_rtd(RtdConfig) returns(SuccessMsg);
     rpc single_sample_rtd(EmptyMsg) returns(TempReading);
+    rpc start_conversions(ADC) returns (SuccessMsg);
+    rpc stop_conversions(ADC) returns (SuccessMsg);
 }
 
 message EmptyMsg {
@@ -53,6 +55,10 @@ message RtdConfig {
 
 message TempReading {
     optional float temp = 1;
+}
+
+message ADC {
+    optional ADCNum adc_num = 1;
 }
 
 enum AnalogIn {
