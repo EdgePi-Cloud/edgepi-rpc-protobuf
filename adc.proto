@@ -13,6 +13,7 @@ service AdcService{
     rpc single_sample_rtd(EmptyMsg) returns(TempReading);
     rpc start_conversions(ADC) returns (SuccessMsg);
     rpc stop_conversions(ADC) returns (SuccessMsg);
+    rpc read_voltage(ADC) returns (VoltageRead);
 }
 
 message EmptyMsg {
