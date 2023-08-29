@@ -21,4 +21,4 @@ In the command line, we trigger the protocol compiler using three arguments:
 
 1. -I: Specifies the directory in which we look for necessary dependencies (we utilize "." which represents the present directory).
 2. --python_out: Indicates the destination for generating a Python integration class (once again, we use "." for the current directory).
-3. The final parameter without a name designates the .proto file that will undergo compilation (we opt for the todolist.proto file located in the current directory).
+3. The final parameter without a name designates the .proto file that will undergo compilation.
