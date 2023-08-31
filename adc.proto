@@ -14,6 +14,7 @@ service AdcService{
     rpc start_conversions(ADC) returns (SuccessMsg);
     rpc stop_conversions(ADC) returns (SuccessMsg);
     rpc read_voltage(ADC) returns (VoltageRead);
+    rpc read_rtd_temperature(EmptyMsg) returns (TempReading);
 }
 
 message EmptyMsg {
