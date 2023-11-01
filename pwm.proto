@@ -6,15 +6,17 @@ package EdgePiRPC_PWM;
 option py_generic_services = true;
 
 service PWMService {
-    // determine which of these is needed
+    rpc set_frequency(SetFrequency) returns(SuccessMsg);
+    rpc set_duty_cycle(SetDutyCycle) returns(SuccessMsg);
+    rpc set_polarity(SetPolarity) returns(SuccessMsg);
     rpc set_config(Config) returns(SuccessMsg);
     rpc init_pwm(PWM) returns(SuccessMsg);
-    rpc get_frequency(PWM) returns(float);
-    rpc get_duty_cycle(PWM) returns(int);
+    rpc get_frequency(PWM) returns(Frequency);
+    rpc get_duty_cycle(PWM) returns(DutyCycle);
     rpc get_polarity(PWM) returns(Polarity);
     rpc enable(PWM) returns(SuccessMsg);
     rpc disable(PWM) returns(SuccessMsg);
-    rpc get_enabled(PWM) returns(bool);
+    rpc get_enabled(PWM) returns(Enabled);
     rpc close(PWM) returns(SuccessMsg);
 }
 
@@ -38,12 +40,39 @@ message PWM {
     optional PWMPins pwm_num = 1;
 }
 
+message SetFrequency {
+    optional PWMPins pwm_num = 1;
+    optional float frequency = 2;
+}
+
+message SetDutyCycle {
+    optional PWMPins pwm_num = 1;
+    optional int duty_cycle = 2;
+}
+
+message SetPolarity {
+    optional PWMPins pwm_num = 1;
+    optional Polarity polarity = 2;
+}
+
+message Frequency {
+    optional float frequency = 1
+}
+
+message DutyCycle {
+    optional int duty_cycle = 1
+}
+
+message Enabled {
+    optional bool enabled = 1
+}
+
 enum Polarity {
     NORMAL = 0;
     INVERSED = 1;
 }
 
-PWMPins {
+enum PWMPins {
     PWM1 = 0;
     PWM2 = 1;
 }
