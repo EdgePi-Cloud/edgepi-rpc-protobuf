@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src-python/edgepi_rpc_protobuf.egg-info/PKG-INFO
+src-python/edgepi_rpc_protobuf.egg-info/SOURCES.txt
+src-python/edgepi_rpc_protobuf.egg-info/dependency_links.txt
+src-python/edgepi_rpc_protobuf.egg-info/top_level.txt
