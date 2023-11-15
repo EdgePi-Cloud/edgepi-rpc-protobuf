@@ -2,7 +2,7 @@
   "name": "@edgepi-cloud/rpc-protobuf",
   "version": "1.0.18",
   "description": "EdgePi rpc protofiles",
-  "main": "javascript/index.js",
+  "main": "javascript_rpc/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
