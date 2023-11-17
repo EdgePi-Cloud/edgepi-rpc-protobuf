@@ -3,11 +3,11 @@ name: Build and Release
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   build-and-publish:
-    name: Publish to PyPi and Release
+    name: Publish to TestPyPi and Release
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: '3.10'
-    - name: Install dependancies
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install twine build
@@ -26,8 +26,8 @@ jobs:
     - name: Build Package
       run: |
         python -m build python_rpc
-    - name: Publish Package to PyPI
-      uses: pypa/gh-action-pypi-publish@v1.5.0
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+    - name: Publish Package to TestPyPI
+      run: twine upload --repository testpypi dist/*
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}

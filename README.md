@@ -1,6 +1,16 @@
 # edgepi-rpc-protobuf
 Protobuf files for EdgePi RPC
 
+## Importing raw files as npm package
+```
+npm install @edgepi-cloud/rpc-protobuf
+```
+
+## Importing python generated code
+```
+pip install edgepi-rpc-protobuf
+```
+
 ## Compiling to languages apart from Javascript and Python:
 - Install protobuf compiler (protoc) and install a protobuf runtime library for a supported language. Visit the [official repo](https://github.com/protocolbuffers/protobuf) for steps.
 - Compile with the following command

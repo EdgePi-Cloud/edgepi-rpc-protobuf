@@ -1,1 +1,4 @@
 python_rpc/edgepi_rpc_protobuf.egg-info
+python_rpc/tests/__pycache__/
+python_rpc/dist/
+javascript_rpc/node_modules
