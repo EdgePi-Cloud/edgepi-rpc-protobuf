@@ -23,7 +23,7 @@ jobs:
         run: |
           cd javascript_rpc
           npm install
-          npm run test-install
+          npm test
 
       - name: Publish to npm with Beta Tag
         run: |
