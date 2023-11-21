@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/EdgePi-Cloud/edgepi-rpc-protobuf/issues"
   },
-  "homepage": "https://github.com/EdgePi-Cloud/edgepi-rpc-protobuf/tree/main/javascript_rpc#readme",
+  "homepage": "https://github.com/EdgePi-Cloud/edgepi-rpc-protobuf/tree/main/javascript_rpc",
   "files": [
     "./*.proto"
   ],

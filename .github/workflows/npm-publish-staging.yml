@@ -16,8 +16,8 @@ jobs:
 
       - name: Copy Proto Files
         run: |
-          mkdir -p javascript_rpc/edgepi_protos
-          cp *.proto javascript_rpc/edgepi_protos/
+          mkdir -p javascript_rpc/edgepi_rpc_protos
+          cp *.proto javascript_rpc/edgepi_rpc_protos/
 
       - name: Install and Test
         run: |
@@ -34,4 +34,4 @@ jobs:
 
       - name: Cleanup Proto Files
         run: |
-          rm -rf javascript_rpc/edgepi_protos
+          rm -rf javascript_rpc/edgepi_rpc_protos
