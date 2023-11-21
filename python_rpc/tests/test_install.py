@@ -33,7 +33,7 @@ def test_pwm_proto_serialization():
         sys.path.append(temp_dir)
 
         # pylint: disable=import-error, wrong-import-position, import-outside-toplevel
-        from protobufs.pwm_pb2 import GetFrequency
+        from rpc_generated_protobufs.pwm_pb2 import GetFrequency
 
         # Test functionality
         pwm_msg = GetFrequency()
