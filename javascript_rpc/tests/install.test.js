@@ -7,30 +7,27 @@ const findRoot = require("find-root");
 
 describe("Protobuf Installation Integration Test", () => {
   test("testProtobufInstallation", async () => {
-    // Using the os's default temporary directory
+    // Create a unique directory in the os's temporary directory
     const tempDir = os.tmpdir();
+    const uniqueDir = path.join(tempDir, `${Date.now()}`);
+    fs.mkdirSync(uniqueDir);
 
     try {
-      // findRoot gets the nearest package.json, so repoRoot will get the repository root
       repoRoot = path.join(findRoot(__dirname), "..");
       const protoFiles = fs
         .readdirSync(repoRoot)
         .filter((file) => file.endsWith(".proto"));
       protoFiles.forEach((file) => {
         const sourcePath = path.join(repoRoot, file);
-        const destPath = path.join(tempDir, file);
-
+        const destPath = path.join(uniqueDir, file);
         fs.copyFileSync(sourcePath, destPath);
       });
 
-      // Install the npm module in the temporary directory
-      execSync(`npm install ${findRoot(__dirname)}`, { cwd: tempDir });
+      execSync(`npm install ${findRoot(__dirname)}`, { cwd: uniqueDir });
 
-      // Load and test protobuf
-      const root = await protobuf.load(path.join(tempDir, "pwm.proto"));
+      const root = await protobuf.load(path.join(uniqueDir, "pwm.proto"));
       const GetFrequency = root.lookupType("GetFrequency");
 
-      // Test serialization/deserialization
       const pwmMsg = GetFrequency.create({ frequency: 2000 });
       const buffer = GetFrequency.encode(pwmMsg).finish();
       const decodedMsg = GetFrequency.decode(buffer);
@@ -39,8 +36,7 @@ describe("Protobuf Installation Integration Test", () => {
     } catch (error) {
       throw error;
     } finally {
-      // Remove temporary directory
-      fs.rmSync(tempDir, { recursive: true });
+      fs.rmSync(uniqueDir, { recursive: true });
     }
   });
 });
