@@ -1,0 +1,3 @@
+build>=1.03
+twine>=4.02
+-r requirements-dev.txt

@@ -1,8 +1,8 @@
-name: Publish Package to npm
+name: Publish Package to npm (Staging)
 on:
   push:
     branches:
-      - main
+      - staging
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,8 +11,8 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Copy Proto Files
         run: |
@@ -25,10 +25,10 @@ jobs:
           npm install
           npm test
 
-      - name: Publish to npm
+      - name: Publish to npm with Beta Tag
         run: |
           cd javascript_rpc
-          npm publish --access public
+          npm publish --access public --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

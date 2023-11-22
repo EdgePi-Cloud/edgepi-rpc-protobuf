@@ -11,7 +11,7 @@ npm install @edgepi-cloud/rpc-protobuf
 pip install edgepi-rpc-protobuf
 ```
 
-## Compiling to other languages
+## Compiling to languages apart from Javascript and Python:
 - Install protobuf compiler (protoc) and install a protobuf runtime library for a supported language. Visit the [official repo](https://github.com/protocolbuffers/protobuf) for steps.
 - Compile with the following command
 ```
