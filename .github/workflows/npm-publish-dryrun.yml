@@ -1,0 +1,32 @@
+name: Publish Package to npm
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Copy Proto Files
+        run: |
+          mkdir -p javascript_rpc/edgepi_rpc_protos
+          cp *.proto javascript_rpc/edgepi_rpc_protos/
+
+      - name: Publish to npm
+        run: |
+          cd javascript_rpc
+          npm publish --access public --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Cleanup Proto Files
+        run: |
+          rm -rf javascript_rpc/edgepi_rpc_protos
