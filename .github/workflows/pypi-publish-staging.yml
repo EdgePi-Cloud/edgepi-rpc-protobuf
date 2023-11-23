@@ -23,8 +23,7 @@ jobs:
         pip install -r requirements-build.txt
     - name: Run Tests
       run: |
-        cd python_rpc
-        pytest tests
+        pytest python_rpc/tests
     - name: Build Package
       run: |
         cd python_rpc
