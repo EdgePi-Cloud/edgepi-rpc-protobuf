@@ -29,7 +29,7 @@ jobs:
         cd python_rpc
         python -m build
     - name: Publish Package to TestPyPI
-      run: twine upload --repository testpypi dist/*
+      run: twine upload --repository testpypi python_rpc/dist/*
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
