@@ -1,6 +1,6 @@
 {
   "name": "@edgepi-cloud/edgepi-rpc-protobuf",
-  "version": "1.0.19",
+  "version": "1.0.21",
   "description": "EdgePi RPC Protobuf Module",
   "main": "index.js",
   "scripts": {

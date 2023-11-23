@@ -25,13 +25,15 @@ jobs:
           npm install
           npm test
 
-      - name: Publish to npm
+      - name: Update Latest Tag
         run: |
           cd javascript_rpc
-          npm publish --access public
+          BETA_VERSION=$(npm view @edgepi-cloud/edgepi-rpc-protobuf dist-tags.beta)
+          if [ -z "$BETA_VERSION" ]
+          then
+            echo "Error: No beta version found for package-name."
+            exit 1
+          fi
+          npm dist-tag add @edgepi-cloud/edgepi-rpc-protobuf@$BETA_VERSION latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Cleanup Proto Files
-        run: |
-          rm -rf javascript_rpc/edgepi_rpc_protos
