@@ -31,7 +31,3 @@ jobs:
           npm publish --access public --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Cleanup Proto Files
-        run: |
-          rm -rf javascript_rpc/edgepi_rpc_protos

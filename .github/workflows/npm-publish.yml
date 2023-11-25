@@ -28,10 +28,12 @@ jobs:
       - name: Publish to npm
         run: |
           cd javascript_rpc
-          npm publish --access public
+          VERSION=$(cat package.json | jq -r .version)
+          if npm view @edgepi-cloud/edgepi-rpc-protobuf@beta versions --json | grep -q $VERSION
+          then
+            npm dist-tag add @edgepi-cloud/edgepi-rpc-protobuf@$VERSION latest
+          else
+            npm publish --access public
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Cleanup Proto Files
-        run: |
-          rm -rf javascript_rpc/edgepi_rpc_protos
