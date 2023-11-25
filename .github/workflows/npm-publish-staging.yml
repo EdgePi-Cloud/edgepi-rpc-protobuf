@@ -17,7 +17,8 @@ jobs:
       - name: Copy Proto Files
         run: |
           mkdir -p javascript_rpc/edgepi_rpc_protos
-          cp *.proto javascript_rpc/edgepi_rpc_protos/
+          cp *.proto javascript_rpc/edgepi_rpc_protos
+          cp LICENSE javascript_rpc
 
       - name: Install and Test
         run: |

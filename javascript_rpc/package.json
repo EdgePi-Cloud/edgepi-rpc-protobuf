@@ -1,6 +1,6 @@
 {
   "name": "@edgepi-cloud/edgepi-rpc-protobuf",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "EdgePi RPC Protobuf Module",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/EdgePi-Cloud/edgepi-rpc-protobuf/tree/main/javascript_rpc",
   "files": [
-    "./*.proto"
+    "edgepi_rpc_protos"
   ],
   "devDependencies": {
     "protobufjs": "^6.11.2",
