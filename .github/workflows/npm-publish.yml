@@ -17,7 +17,7 @@ jobs:
       - name: Copy Proto Files
         run: |
           mkdir -p javascript_rpc/edgepi_rpc_protos
-          cp *.proto javascript_rpc/edgepi_rpc_protos/
+          cp *.proto javascript_rpc/edgepi_rpc_protos
 
       - name: Install and Test
         run: |
@@ -32,6 +32,7 @@ jobs:
           if npm view @edgepi-cloud/edgepi-rpc-protobuf@beta versions --json | grep -q $VERSION
           then
             npm dist-tag add @edgepi-cloud/edgepi-rpc-protobuf@$VERSION latest
+            npm dist-tag rm @edgepi-cloud/edgepi-rpc-protobuf beta
           else
             npm publish --access public
           fi
