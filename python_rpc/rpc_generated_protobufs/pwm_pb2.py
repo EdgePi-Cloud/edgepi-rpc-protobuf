@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tpwm.proto\x12\rEdgePiRPC_PWM\".\n\nSuccessMsg\x12\x14\n\x07\x63ontent\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\n\n\x08_content\"\xd0\x01\n\x06\x43onfig\x12/\n\x08\x63onf_arg\x18\x01 \x03(\x0b\x32\x1d.EdgePiRPC_PWM.Config.ConfArg\x1a\x94\x01\n\x07\x43onfArg\x12)\n\x07pwm_num\x18\x02 \x01(\x0e\x32\x16.EdgePiRPC_PWM.PWMPinsH\x00\x12\x13\n\tfrequency\x18\x03 \x01(\x02H\x00\x12\x14\n\nduty_cycle\x18\x04 \x01(\x02H\x00\x12+\n\x08polarity\x18\x05 \x01(\x0e\x32\x17.EdgePiRPC_PWM.PolarityH\x00\x42\x06\n\x04\x65num\"?\n\x03PWM\x12,\n\x07pwm_num\x18\x01 \x01(\x0e\x32\x16.EdgePiRPC_PWM.PWMPinsH\x00\x88\x01\x01\x42\n\n\x08_pwm_num\"4\n\x0cGetFrequency\x12\x16\n\tfrequency\x18\x01 \x01(\x02H\x00\x88\x01\x01\x42\x0c\n\n_frequency\"6\n\x0cGetDutyCycle\x12\x17\n\nduty_cycle\x18\x01 \x01(\x02H\x00\x88\x01\x01\x42\r\n\x0b_duty_cycle\".\n\nGetEnabled\x12\x14\n\x07\x65nabled\x18\x01 \x01(\x08H\x00\x88\x01\x01\x42\n\n\x08_enabled\"J\n\x0bGetPolarity\x12.\n\x08polarity\x18\x01 \x01(\x0e\x32\x17.EdgePiRPC_PWM.PolarityH\x00\x88\x01\x01\x42\x0b\n\t_polarity*$\n\x08Polarity\x12\n\n\x06NORMAL\x10\x00\x12\x0c\n\x08INVERSED\x10\x01*\x1d\n\x07PWMPins\x12\x08\n\x04PWM1\x10\x00\x12\x08\n\x04PWM2\x10\x01\x32\xb5\x04\n\nPWMService\x12>\n\nset_config\x12\x15.EdgePiRPC_PWM.Config\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12\x39\n\x08init_pwm\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12@\n\rget_frequency\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1b.EdgePiRPC_PWM.GetFrequency\x12\x41\n\x0eget_duty_cycle\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1b.EdgePiRPC_PWM.GetDutyCycle\x12>\n\x0cget_polarity\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1a.EdgePiRPC_PWM.GetPolarity\x12\x37\n\x06\x65nable\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12\x38\n\x07\x64isable\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12<\n\x0bget_enabled\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.GetEnabled\x12\x36\n\x05\x63lose\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsgB\x03\x90\x01\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tpwm.proto\x12\rEdgePiRPC_PWM\".\n\nSuccessMsg\x12\x14\n\x07\x63ontent\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\n\n\x08_content\"\xd0\x01\n\x06\x43onfig\x12/\n\x08\x63onf_arg\x18\x01 \x03(\x0b\x32\x1d.EdgePiRPC_PWM.Config.ConfArg\x1a\x94\x01\n\x07\x43onfArg\x12)\n\x07pwm_num\x18\x02 \x01(\x0e\x32\x16.EdgePiRPC_PWM.PWMPinsH\x00\x12\x13\n\tfrequency\x18\x03 \x01(\x02H\x00\x12\x14\n\nduty_cycle\x18\x04 \x01(\x02H\x00\x12+\n\x08polarity\x18\x05 \x01(\x0e\x32\x17.EdgePiRPC_PWM.PolarityH\x00\x42\x06\n\x04\x65num\"?\n\x03PWM\x12,\n\x07pwm_num\x18\x01 \x01(\x0e\x32\x16.EdgePiRPC_PWM.PWMPinsH\x00\x88\x01\x01\x42\n\n\x08_pwm_num\"4\n\x0cGetFrequency\x12\x16\n\tfrequency\x18\x01 \x01(\x02H\x00\x88\x01\x01\x42\x0c\n\n_frequency\"6\n\x0cGetDutyCycle\x12\x17\n\nduty_cycle\x18\x01 \x01(\x02H\x00\x88\x01\x01\x42\r\n\x0b_duty_cycle\".\n\nGetEnabled\x12\x14\n\x07\x65nabled\x18\x01 \x01(\x08H\x00\x88\x01\x01\x42\n\n\x08_enabled\"J\n\x0bGetPolarity\x12.\n\x08polarity\x18\x01 \x01(\x0e\x32\x17.EdgePiRPC_PWM.PolarityH\x00\x88\x01\x01\x42\x0b\n\t_polarity\"\xba\x01\n\x0bPWMSettings\x12\x16\n\tfrequency\x18\x01 \x01(\x02H\x00\x88\x01\x01\x12\x17\n\nduty_cycle\x18\x02 \x01(\x02H\x01\x88\x01\x01\x12\x14\n\x07\x65nabled\x18\x03 \x01(\x08H\x02\x88\x01\x01\x12.\n\x08polarity\x18\x04 \x01(\x0e\x32\x17.EdgePiRPC_PWM.PolarityH\x03\x88\x01\x01\x42\x0c\n\n_frequencyB\r\n\x0b_duty_cycleB\n\n\x08_enabledB\x0b\n\t_polarity*$\n\x08Polarity\x12\n\n\x06NORMAL\x10\x00\x12\x0c\n\x08INVERSED\x10\x01*\x1d\n\x07PWMPins\x12\x08\n\x04PWM1\x10\x00\x12\x08\n\x04PWM2\x10\x01\x32\xf5\x04\n\nPWMService\x12>\n\nset_config\x12\x15.EdgePiRPC_PWM.Config\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12\x39\n\x08init_pwm\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12@\n\rget_frequency\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1b.EdgePiRPC_PWM.GetFrequency\x12\x41\n\x0eget_duty_cycle\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1b.EdgePiRPC_PWM.GetDutyCycle\x12>\n\x0cget_polarity\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1a.EdgePiRPC_PWM.GetPolarity\x12<\n\x0bget_enabled\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.GetEnabled\x12>\n\x0cget_settings\x12\x12.EdgePiRPC_PWM.PWM\x1a\x1a.EdgePiRPC_PWM.PWMSettings\x12\x37\n\x06\x65nable\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12\x38\n\x07\x64isable\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsg\x12\x36\n\x05\x63lose\x12\x12.EdgePiRPC_PWM.PWM\x1a\x19.EdgePiRPC_PWM.SuccessMsgB\x03\x90\x01\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,10 +22,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pwm_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\220\001\001'
-  _globals['_POLARITY']._serialized_start=586
-  _globals['_POLARITY']._serialized_end=622
-  _globals['_PWMPINS']._serialized_start=624
-  _globals['_PWMPINS']._serialized_end=653
+  _globals['_POLARITY']._serialized_start=775
+  _globals['_POLARITY']._serialized_end=811
+  _globals['_PWMPINS']._serialized_start=813
+  _globals['_PWMPINS']._serialized_end=842
   _globals['_SUCCESSMSG']._serialized_start=28
   _globals['_SUCCESSMSG']._serialized_end=74
   _globals['_CONFIG']._serialized_start=77
@@ -42,7 +42,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_GETENABLED']._serialized_end=508
   _globals['_GETPOLARITY']._serialized_start=510
   _globals['_GETPOLARITY']._serialized_end=584
-  _globals['_PWMSERVICE']._serialized_start=656
-  _globals['_PWMSERVICE']._serialized_end=1221
+  _globals['_PWMSETTINGS']._serialized_start=587
+  _globals['_PWMSETTINGS']._serialized_end=773
+  _globals['_PWMSERVICE']._serialized_start=845
+  _globals['_PWMSERVICE']._serialized_end=1474
 _builder.BuildServices(DESCRIPTOR, 'pwm_pb2', _globals)
 # @@protoc_insertion_point(module_scope)
