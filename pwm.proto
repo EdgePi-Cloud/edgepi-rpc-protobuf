@@ -11,9 +11,10 @@ service PWMService {
     rpc get_frequency(PWM) returns(GetFrequency);
     rpc get_duty_cycle(PWM) returns(GetDutyCycle);
     rpc get_polarity(PWM) returns(GetPolarity);
+    rpc get_enabled(PWM) returns(GetEnabled);
+    rpc get_settings(PWM) returns(PWMSettings);
     rpc enable(PWM) returns(SuccessMsg);
     rpc disable(PWM) returns(SuccessMsg);
-    rpc get_enabled(PWM) returns(GetEnabled);
     rpc close(PWM) returns(SuccessMsg);
 }
 
@@ -52,6 +53,13 @@ message GetEnabled {
 
 message GetPolarity {
     optional Polarity polarity = 1;
+}
+
+message PWMSettings {
+    optional float frequency = 1;
+    optional float duty_cycle = 2;
+    optional bool enabled = 3;
+    optional Polarity polarity = 4;
 }
 
 enum Polarity {
