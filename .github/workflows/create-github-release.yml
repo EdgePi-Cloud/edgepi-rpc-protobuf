@@ -1,11 +1,11 @@
-# This workflow will use the pushed release tag to create a GitHub release
+# This workflow will create GitHub release for the newly pushed release tag
 
 name: Create GitHub Release
 
 on:
   push:
     tags:
-      - release/* 
+      - release/*
 
 jobs:
   create-release:
