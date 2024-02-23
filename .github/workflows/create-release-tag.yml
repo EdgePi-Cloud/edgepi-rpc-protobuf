@@ -1,10 +1,6 @@
-# This workflow will create a new tag based on latest commit to main branch.
-# Some preparation beforehand, needs to apply the version at the root of the repo
-# to both the Python and JavaScript projects before creating the official tag.
-# Note if those versions have already been updated, the tag will fail to be 
-# created. But this should be expected, as it's assumed a tag for that version
-# has been created already.
-
+# This workflow will create a new tag based on latest commit to main branch
+# Uses version at root of the repo. It's assumed the versions for the Python
+# and JavaScript projects have been updated accordingly.
 
 name: Create Release Tag
 
@@ -14,46 +10,9 @@ on:
       - 'main'
 
 jobs:
-  update-versions:
-    name: Update Versions
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.ACTIONS_BOT_TOKEN }}
-
-      - name: Get root version
-        run: echo "root_version=$(grep "version =" version | cut -d ' ' -f 3)" >> $GITHUB_ENV
-
-      - name: Update version (Python side)
-        run: |
-          sed -i 's/version = [0-9]\+\.[0-9]\+\.[0-9]\+/version = ${{ env.root_version }}/g' python_rpc/setup.cfg
-
-      - name: Update version (JavaScript side)
-        run: |
-          sed -i 's/"version": "[0-9]\+\.[0-9]\+\.[0-9]\+"/"version": "${{ env.root_version }}"/g' javascript_rpc/package.json
-
-      - name: Push version updates
-        env:
-          commit_name: bot-edgepi
-          commit_email: bot@edgepi.com
-          username: bot-edgepi
-        # Note: adding [skip ci] to commit msg ensures the bot doesn't trigger this workflow again
-        # (otherwise this job will fail because the files have already been updated and there's nothing to commit)
-        run: |
-          git config user.name ${{ env.commit_name }}
-          git config user.email ${{ env.commit_email }}
-          git add .
-          git commit -m "bump project versions to ${{ env.root_version }} [skip ci]"
-          git push origin
-
   create-release-tag:
     name:  Create Release Tag
     runs-on: ubuntu-latest
-    # Make sure versions have been updated already, as this tag push will trigger publishing
-    needs: update-versions
 
     steps:
       - name: Checkout
