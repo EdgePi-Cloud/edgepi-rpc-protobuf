@@ -25,7 +25,7 @@ jobs:
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
 
       - name: Get root version
-        run: echo "root_version=$(grep "version" version | cut -d ' ' -f 3)" >> $GITHUB_ENV
+        run: echo "root_version=$(grep "version =" version | cut -d ' ' -f 3)" >> $GITHUB_ENV
 
       - name: Update version (Python side)
         run: |
@@ -62,7 +62,7 @@ jobs:
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
 
       - name: Get current version
-        run: echo "current_version=$(grep "version" version | cut -d ' ' -f 3)" >> $GITHUB_ENV
+        run: echo "current_version=$(grep "version =" version | cut -d ' ' -f 3)" >> $GITHUB_ENV
 
       - name: Create release tag
         env:
