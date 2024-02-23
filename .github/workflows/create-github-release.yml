@@ -1,0 +1,19 @@
+# This workflow will create GitHub release for the newly pushed release tag
+
+name: Create GitHub Release
+
+on:
+  push:
+    tags:
+      - release/*
+
+jobs:
+  create-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1.12.0
