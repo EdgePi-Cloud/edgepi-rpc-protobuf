@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACTIONS_BOT_TOKEN }}
 
       - name: Get root version
         run: echo "root_version=$(grep "version =" version | cut -d ' ' -f 3)" >> $GITHUB_ENV
@@ -37,5 +39,5 @@ jobs:
           git config user.name ${{ env.commit_name }}
           git config user.email ${{ env.commit_email }}
           git add .
-          git commit -m "bump project versions to ${{ env.root_version }}"
+          git commit -m "bump project versions to ${{ env.root_version }} [skip ci]"
           git push origin dev
